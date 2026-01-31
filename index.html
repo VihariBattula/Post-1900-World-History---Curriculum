@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vihari Battula — Modern History Curriculum Guide</title>
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&family=Fira+Code:wght@450;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sub-sub-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary);
+            padding-left: 16px;
+        }
+
+        .highlight-red {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Higher density line height for syllabus feel */
+        .problem-item {
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="brand" onclick="navigateTo('intro-page')">
+            Vihari Battula <span>Modern History Notebook</span>
+        </div>
+        <div>
+            <span style="font-size:12px; color:var(--muted); margin-right:12px;">Last updated: <span
+                    id="dateDisplay"></span></span>
+            <button class="btn-reveal" onclick="window.print()">Print Syllabus PDF</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <nav class="sidebar">
+
+            <div class="nav-group">
+                <button class="nav-header" onclick="toggleGroup(this)">Overview</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('intro-page')" class="nav-item active" id="nav-intro-page">Cover Page</a>
+                    <a onclick="navigateTo('prologue')" class="nav-item" id="nav-prologue">Curriculum Intent</a>
+                </div>
+            </div>
+
+            <!-- UNIT 1 -->
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 1: World at War (WWI)</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u1-world-war')" class="nav-item" id="nav-u1-world-war">Unit Overview</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.1')" class="nav-sub">1.1 Primary Causes (M.A.I.N.)</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.2')" class="nav-sub">1.2 Troops & Civilians</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.3')" class="nav-sub">1.3 New Technologies</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.4')" class="nav-sub">1.4 Total War Impact</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.5')" class="nav-sub">1.5 Treaty of Versailles</a>
+                    <a onclick="navigateTo('u1-world-war', 'u1.6')" class="nav-sub">1.6 Russian Revolution</a>
+                </div>
+            </div>
+
+
+            <!-- UNIT 2 -->
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 2: World War 2</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u2-world-war')" class="nav-item" id="nav-u2-world-war">Unit Overview</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.1')" class="nav-sub">2.1 Rise of Dictators</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.2')" class="nav-sub">2.2 Munich & Poland</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.3')" class="nav-sub">2.3 Blitzkrieg Tactics</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.4')" class="nav-sub">2.4 Soviet Expansion</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.5')" class="nav-sub">2.5 Fall of Western Europe</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.6')" class="nav-sub">2.6 Vichy & Resistance</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.7')" class="nav-sub">2.7 Operation Barbarossa</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.8')" class="nav-sub">2.8 The Holocaust</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.9')" class="nav-sub">2.9 Resistance Uprisings</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.10')" class="nav-sub">2.10 Total War Mobilization</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.11')" class="nav-sub">2.11 Turning the Tide</a>
+                    <a onclick="navigateTo('u2-world-war', 'u2.12')" class="nav-sub">2.12 Final Stages: D-Day</a>
+                </div>
+            </div>
+
+            <!-- UNIT 3 -->
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 3: Cold War</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u3-cold-war')" class="nav-item" id="nav-u3-cold-war">Unit Overview</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.1')" class="nav-sub">3.1 Superpower Rivalry</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.2')" class="nav-sub">3.2 Nuclear Arms Race</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.3')" class="nav-sub">3.3 Cold War in Latin America</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.4')" class="nav-sub">3.4 The Korean War</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.5')" class="nav-sub">3.5 The Vietnam Conflict</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.6')" class="nav-sub">3.6 Soviet Command Economy</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.7')" class="nav-sub">3.7 Afghanistan & Cambodia</a>
+                    <a onclick="navigateTo('u3-cold-war', 'u3.8')" class="nav-sub">3.8 Gorbachev's Reforms</a>
+                </div>
+            </div>
+
+            <!-- UNIT 4 -->
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 4: Decolonization</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u4-decolonization')" class="nav-item" id="nav-u4-decolonization">Unit
+                        Overview</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.1')" class="nav-sub">4.1 Precolonial Ghana</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.2')" class="nav-sub">4.2 European Arrival</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.3')" class="nav-sub">4.3 Post-WWII Fervor</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.4')" class="nav-sub">4.4 Kwame Nkrumah</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.5')" class="nav-sub">4.5 African Socialism</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.6')" class="nav-sub">4.6 Economic Turmoil</a>
+                    <a onclick="navigateTo('u4-decolonization', 'u4.7')" class="nav-sub">4.7 Independence Impacts</a>
+                </div>
+            </div>
+
+            <!-- UNIT 5 -->
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 5: India & China</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u5-india-china')" class="nav-item" id="nav-u5-india-china">Unit Overview</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.1')" class="nav-sub">5.1 Chinese Republic</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.2')" class="nav-sub">5.2 Mao Zedong's Theory</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.3')" class="nav-sub">5.3 The Long March</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.4')" class="nav-sub">5.4 Japanese Invasions</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.5')" class="nav-sub">5.5 Indian Nationalism (1885)</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.6')" class="nav-sub">5.6 Gandhi's Satyagraha</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.7')" class="nav-sub">5.7 The Salt March</a>
+                    <a onclick="navigateTo('u5-india-china', 'u5.8')" class="nav-sub">5.8 Modern Indian Economy</a>
+                </div>
+            </div>
+
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 6: Middle East</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u6-middle-east')" class="nav-item" id="nav-nav-u6-middle-east">Regional
+                        Overview</a>
+                    <a onclick="navigateTo('u6-middle-east', 'u6.1')" class="nav-sub">6.1 Ottoman Challenges</a>
+                </div>
+            </div>
+
+            <div class="nav-group collapsed">
+                <button class="nav-header" onclick="toggleGroup(this)">Unit 7: Latin America</button>
+                <div class="nav-links-container">
+                    <a onclick="navigateTo('u7-latin-america')" class="nav-item" id="nav-nav-u7-latin-america">Regional
+                        Overview</a>
+                    <a onclick="navigateTo('u7-latin-america', 'u7.1')" class="nav-sub">7.1 Cuban Revolution</a>
+                    <a onclick="navigateTo('u7-latin-america', 'u7.2')" class="nav-sub">7.2 Missile Crisis Impact</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main" id="main-scroll">
+            <div class="content-container">
+
+                <section id="intro-page" class="content-section active">
+                    <div class="title-page">
+                        <div class="tp-title">Modern History<br>Curriculum Guide</div>
+                        <div class="tp-divider"></div>
+                        <div class="tp-subtitle">Complete Factual Archive and Syllabus Resource</div>
+                        <div class="tp-author">Vihari Battula</div>
+                    </div>
+                </section>
+
+                <section id="prologue" class="content-section">
+                    <h1>Curriculum Intent</h1>
+                    <p>This syllabus is a rigorous documentation of the modern era, organized into 7 fundamental units.
+                        Each section contains specific, fact-checked details designed for high-level academic study.
+                        Crimson headings denote <strong>Main Ideas</strong>, and sub-sections follow a numerical
+                        hierarchy for maximum organization.</p>
+                </section>
+
+                <!-- UNIT 1 -->
+                <section id="u1-world-war" class="content-section">
+                    <h1>Unit 1: World at War (World War I)</h1>
+
+                    <div class="unit-intro">
+                        <p>World War I (1914–1918) was a global conflict unprecedented in scale and devastation. This
+                            unit examines the causes, experiences, technologies, and lasting consequences of "The Great
+                            War."</p>
+                    </div>
+
+                    <!-- SECTION 1: PRIMARY CAUSES -->
+                    <h2 id="u1.1">1.1 Primary Causes of World War I</h2>
+                    <p class="section-intro">Historians categorize the causes of WWI using the <strong>M.A.I.N.</strong>
+                        acronym. The immediate spark was the <span class="highlight-red">assassination of Archduke Franz
+                            Ferdinand</span> of Austria-Hungary in Sarajevo on <strong>June 28, 1914</strong>.</p>
+
+                    <div class="cause-card">
+                        <h3 class="cause-title"><span class="cause-letter">M</span> Militarism</h3>
+                        <ul class="problem-list">
+                            <li class="problem-item">An arms race, particularly between <strong>Britain and
+                                    Germany</strong> regarding naval supremacy, led to inflated military budgets.</li>
+                            <li class="problem-item">A culture emerged where war was seen as a valid tool of foreign
+                                policy.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cause-card">
+                        <h3 class="cause-title"><span class="cause-letter">A</span> Alliances</h3>
+                        <ul class="problem-list">
+                            <li class="problem-item">A web of mutual defense treaties meant a local conflict could
+                                quickly escalate into continental war.</li>
+                            <li class="problem-item"><strong>Triple Entente:</strong> Britain, France, and Russia.</li>
+                            <li class="problem-item"><strong>Triple Alliance:</strong> Germany, Austria-Hungary, and
+                                Italy.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cause-card">
+                        <h3 class="cause-title"><span class="cause-letter">I</span> Imperialism</h3>
+                        <ul class="problem-list">
+                            <li class="problem-item">Competition for colonies and resources in Africa and Asia created
+                                friction between European powers.</li>
+                            <li class="problem-item">Colonial rivalries heightened tensions and distrust among nations.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="cause-card">
+                        <h3 class="cause-title"><span class="cause-letter">N</span> Nationalism</h3>
+                        <ul class="problem-list">
+                            <li class="problem-item">Intense devotion to one's nation fueled aggressive foreign
+                                policies.</li>
+                            <li class="problem-item">The desire for self-determination—particularly among <strong>Slavic
+                                    groups</strong> in the Austro-Hungarian Empire—destabilized existing empires.</li>
+                        </ul>
+                    </div>
+
+                    <!-- SECTION 2: EXPERIENCES -->
+                    <h2 id="u1.2">1.2 Experiences of Troops and Civilians</h2>
+                    <p class="section-intro">The experience of the war varied significantly depending on the front and
+                        the role of the individual.</p>
+
+                    <h3 class="sub-sub-title">Troops on the Front Lines</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Western Front:</strong> Soldiers experienced the grueling
+                            reality of <span class="highlight-red">trench warfare</span>—defined by mud, disease (like
+                            trench foot), and constant artillery threat.</li>
+                        <li class="problem-item"><strong>Eastern Front:</strong> More fluid combat involving vast
+                            movements of troops across Russia and Central Europe.</li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Global Participation</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">Soldiers were drawn from colonies in <strong>Africa, India, and
+                                Southeast Asia</strong>.</li>
+                        <li class="problem-item">These troops often faced discrimination despite their vital
+                            contributions to Allied and Central efforts.</li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Civilians & The Home Front</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">For the first time, the "home front" became a target of war.</li>
+                        <li class="problem-item"><strong>Naval Blockades:</strong> Led to starvation, particularly in
+                            Germany.</li>
+                        <li class="problem-item"><strong>Aerial Bombings:</strong> Zeppelins brought warfare to civilian
+                            populations.</li>
+                        <li class="problem-item"><strong>Refugees:</strong> Millions were displaced across Europe.</li>
+                    </ul>
+
+                    <!-- SECTION 3: NEW TECHNOLOGIES -->
+                    <h2 id="u1.3">1.3 Influence of New Technologies</h2>
+                    <p class="section-intro">WWI is often called the first <strong>"industrialized war"</strong> because
+                        of the rapid application of science to killing.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>Machine Guns & Heavy Artillery</h4>
+                            <p>Forced the war underground into trenches, making traditional cavalry charges obsolete.
+                            </p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Chemical Weapons</h4>
+                            <p>Poison gas (chlorine and mustard gas) introduced psychological and physical horror,
+                                leading to the development of gas masks.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Tanks & Aviation</h4>
+                            <p>Tanks were developed to break trench stalemates; airplanes transitioned from
+                                reconnaissance to fighters and bombers.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Submarines (U-boats)</h4>
+                            <p>Germany's unrestricted submarine warfare disrupted global trade and was a primary reason
+                                for the <strong>United States' entry</strong> into the war.</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: TOTAL WAR -->
+                    <h2 id="u1.4">1.4 Total War and Its Impact</h2>
+                    <p class="section-intro">World War I was a <strong>Total War</strong>, meaning nations mobilized
+                        their entire populations and economies toward the war effort.</p>
+
+                    <h3 class="sub-sub-title">State Control</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">Governments took control of industries, set prices, and rationed food
+                            and fuel.</li>
+                        <li class="problem-item">Centralized planning became essential to sustain prolonged warfare.
+                        </li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Propaganda</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">States used sophisticated media campaigns to maintain public morale.
+                        </li>
+                        <li class="problem-item">Enemy nations were demonized to sustain support for the war effort.
+                        </li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Societal Shifts</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">With millions of men at the front, <strong>women entered the
+                                workforce</strong> in unprecedented numbers.</li>
+                        <li class="problem-item">Women worked in munitions factories and as nurses.</li>
+                        <li class="problem-item">This eventually bolstered the movement for <span
+                                class="highlight-red">women's suffrage</span>.</li>
+                    </ul>
+
+                    <!-- SECTION 5: END OF WAR & TREATY -->
+                    <h2 id="u1.5">1.5 The End of the War & Treaty of Versailles</h2>
+                    <p class="section-intro">The war ended with an <strong>armistice on November 11, 1918</strong>, but
+                        the subsequent Treaty of Versailles (1919) was deeply divisive.</p>
+
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>Perception / Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Germany</strong></td>
+                                <td>Felt humiliated by the "War Guilt Clause" and massive financial reparations
+                                    (<strong>$33 billion</strong>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>France / Britain</strong></td>
+                                <td>Sought security and revenge; France wanted to ensure Germany could never threaten
+                                    them again.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>United States</strong></td>
+                                <td>President Wilson promoted his "Fourteen Points" and the League of Nations, but the
+                                    U.S. Senate rejected the treaty.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Colonized Peoples</strong></td>
+                                <td>Many hoped for "self-determination" as promised by Wilson, but were disappointed
+                                    when European powers maintained or expanded colonial holdings.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- SECTION 6: RUSSIAN REVOLUTION -->
+                    <h2 id="u1.6">1.6 Primary Causes of the Russian Revolution</h2>
+                    <p class="section-intro">The Russian Revolution of 1917 was not a single event but a result of
+                        long-standing systemic failures exacerbated by the war.</p>
+
+                    <h3 class="sub-sub-title">WWI Failures</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">Russia suffered staggering losses—over <strong>2 million
+                                deaths</strong>.</li>
+                        <li class="problem-item">Severe food shortages destroyed the credibility of <strong>Tsar
+                                Nicholas II</strong>.</li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Economic Inequality</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">A massive peasantry lived in poverty while a small elite held the
+                            wealth.</li>
+                        <li class="problem-item">This created fertile ground for <strong>Marxist ideologies</strong>.
+                        </li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Weak Leadership</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">The Tsar's refusal to grant political reforms alienated the nobility
+                            and public.</li>
+                        <li class="problem-item">Reliance on controversial figures like <strong>Rasputin</strong>
+                            further eroded trust.</li>
+                    </ul>
+
+                    <h3 class="sub-sub-title">Dual Power & Bolshevik Rise</h3>
+                    <ul class="problem-list">
+                        <li class="problem-item">After the <strong>February Revolution</strong>, a weak Provisional
+                            Government competed for power with the Soviets (councils of workers and soldiers).</li>
+                        <li class="problem-item">The Soviets eventually supported the Bolsheviks' promise of <span
+                                class="highlight-red">"Peace, Land, and Bread."</span></li>
+                    </ul>
+                </section>
+
+                <!-- UNIT 2 -->
+                <section id="u2-world-war" class="content-section">
+                    <h1>Unit 2: World War II (1939–1945)</h1>
+
+                    <div class="unit-intro">
+                        <p>World War II was the deadliest conflict in human history. This unit explores the rise of
+                            fascist dictators, the innovative and brutal "Blitzkrieg" tactics, and the global struggle
+                            for power between 1939 and 1945.</p>
+                    </div>
+
+                    <!-- SECTION 1: RISE OF DICTATORS -->
+                    <h2 id="u2.1">2.1 Rise of Dictators & Pre-war Aggression</h2>
+                    <p class="section-intro">Following WWI, weak democratic governments and economic turmoil allowed
+                        extremist leaders to seize power in Europe and Asia.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Italy:</strong> Mussolini's "Black Shirts" established a
+                            fascist state by 1922, prioritizing the "Corporate State" over individual rights.</li>
+                        <li class="problem-item"><strong>Germany:</strong> The weak Weimar Republic collapsed under
+                            hyperinflation, allowing Hitler to rise to power in 1933 with promises of
+                            <em>Lebensraum</em> (living space).
+                        </li>
+                        <li class="problem-item"><strong>Early Aggression:</strong> Italy invaded Ethiopia (1935), and
+                            Japan overran eastern China, while the League of Nations remained powerless.</li>
+                        <li class="problem-item"><strong>Spanish Civil War:</strong> Served as a "Dress Rehearsal" for
+                            WWII; Hitler and Mussolini tested new military technology in the bombing of Guernica (1937).
+                        </li>
+                    </ul>
+
+                    <!-- SECTION 2: MUNICH & POLAND -->
+                    <h2 id="u2.2">2.2 The Munich Conference & The Spark of War</h2>
+                    <p class="section-intro">The policy of <strong>Appeasement</strong> reached its peak at the Munich
+                        Conference, but it failed to prevent a global conflict.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>The Munich Pact (1938):</strong> Britain and France allowed
+                            Germany to annex the Sudetenland in hopes of avoiding war. British PM Neville Chamberlain
+                            promised "peace for our time."</li>
+                        <li class="problem-item"><strong>Invasion of Poland:</strong> On <span
+                                class="highlight-red">September 1, 1939</span>, Germany invaded Poland, marking the
+                            official start of WWII in the West.</li>
+                        <li class="problem-item"><strong>Nazi-Soviet Pact:</strong> Hitler and Stalin signed a
+                            non-aggression treaty, secretly agreeing to divide Poland between them.</li>
+                    </ul>
+
+                    <!-- SECTION 3: BLITZKRIEG -->
+                    <h2 id="u2.3">2.3 Blitzkrieg: A New Era of Warfare</h2>
+                    <p class="section-intro">Hitler understood that Germany lost WWI because of the slow, methodical
+                        nature of trench warfare. He developed <strong>Blitzkrieg</strong> ("Lightning Warfare") to
+                        overwhelm enemies with speed.</p>
+
+                    <div class="tactical-grid">
+                        <div class="tactical-step">
+                            <span class="step-num">01</span>
+                            <span class="step-name">Softening Up</span>
+                            <span class="step-desc">Heavy artillery and airplane strikes to disrupt defenses.</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">02</span>
+                            <span class="step-name">Aerial Superiority</span>
+                            <span class="step-desc">Airplanes (Luftwaffe) target airfields and communications.</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">03</span>
+                            <span class="step-name">The Panzer Spearhead</span>
+                            <span class="step-desc">Fast-moving tanks (Panzers) break through the line.</span>
+                        </div>
+                    </div>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>The Panzer:</strong> These were the fastest and strongest tanks
+                            of the time, allowing German forces to invade vast amounts of land quickly.</li>
+                        <li class="problem-item"><strong>The role of the SS:</strong> Following the military advance, SS
+                            units would conduct house-to-house sweeps, sending civilians to concentration camps or
+                            executing them.</li>
+                    </ul>
+
+                    <!-- SECTION 4: SOVIET EXPANSION -->
+                    <h2 id="u2.4">2.4 Soviet Expansion & The Baltic Coast</h2>
+                    <p class="section-intro">While Germany struck in the West, Stalin utilized the Nazi-Soviet Pact to
+                        expand Russian territory in the East.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Annexations:</strong> Stalin annexed the Baltic states of
+                            Lithuania, Latvia, and Estonia, as well as parts of Romania and the Finnish coast.</li>
+                        <li class="problem-item"><strong>Occupation Terror:</strong> In these newly occupied lands,
+                            roughly 10% of the local populations were killed, deported, or placed in camps.</li>
+                        <li class="problem-item"><strong>The Polish Divide:</strong> Germany and Russia divided Poland
+                            between them within three weeks of the initial invasion.</li>
+                    </ul>
+
+                    <!-- SECTION 5: FALL OF WESTERN EUROPE -->
+                    <h2 id="u2.5">2.5 The Fall of Western Europe (1940)</h2>
+                    <p class="section-intro">After the "Phony War"—a period where Britain and France waited behind lines
+                        like the Maginot Line—Hitler launched a massive spring offensive.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Northern Campaign:</strong> In April 1940, Denmark and Norway
+                            fell in two months, securing Swedish iron-ore and air bases for Germany.</li>
+                        <li class="problem-item"><strong>The Fall of France:</strong> Using fast movements through
+                            neutral nations, France fell in just a few weeks (June 1940).</li>
+                        <li class="problem-item"><strong>Great Britain Stands Alone:</strong> With France defeated,
+                            Britain became the sole remaining obstacle for Hitler in the West.</li>
+                        <li class="problem-item"><strong>The US Role:</strong> The United States provided weapons to
+                            help Britain but remained neutral, wanting to avoid another European "Great War."</li>
+                    </ul>
+
+                    <div class="quote-card">
+                        <p class="quote-text">We shall fight on the beaches, we shall fight on the landing grounds, we
+                            shall fight in the fields and on the streets, we shall fight in the streets, we shall never
+                            surrender.</p>
+                        <span class="quote-author">Winston Churchill, June 1940</span>
+                    </div>
+
+                    <!-- SECTION 6: VICHY & RESISTANCE -->
+                    <h2 id="u2.6">2.6 The French Resistance & Vichy Government</h2>
+                    <p class="section-intro">Following the defeat, France was split into an occupied zone and a
+                        collaborating government in the south.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>The Vichy Government</h4>
+                            <p>A Nazi puppet state in southern France led by Marshal Philippe Pétain. It followed German
+                                directives and cooperated with the occupation.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>The French Resistance</h4>
+                            <p>Led by General Charles de Gaulle from London. Used guerrilla tactics to sabotage German
+                                infrastructure and disrupt communication.</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 7: OPERATION BARBAROSSA -->
+                    <h2 id="u2.7">2.7 Operation Barbarossa: The Eastern Front</h2>
+                    <p class="section-intro">Hitler viewed the Soviets as an "inferior race" due to their historical
+                        Mongol ties. On <strong>June 22, 1941</strong>, he launched <em>Operation Barbarossa</em>, the
+                        massive invasion of the USSR.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Initial Advance:</strong> 3.5 million German soldiers struck
+                            quickly, reaching within 18 miles of Moscow.</li>
+                        <li class="problem-item"><strong>Soviet Response:</strong> Though ill-prepared, the Soviets used
+                            a <strong>Scorched Earth Policy</strong> to deny Germans resources as they retreated.</li>
+                        <li class="problem-item"><strong>Winter Counter-attack:</strong> General Georgi Zhukov held off
+                            the exhausted Germans as the brutal Russian winter (-18°C) set in.</li>
+                    </ul>
+
+                    <div class="cause-card">
+                        <h3 class="cause-title"><span class="cause-letter">!</span> Hitler's Strategic Failures</h3>
+                        <ul class="problem-list">
+                            <li class="problem-item"><strong>Timing:</strong> Attacking too late in the spring left the
+                                army exposed to the winter freeze.</li>
+                            <li class="problem-item"><strong>Divided Focus:</strong> Hitler ignored generals and split
+                                forces between Leningrad, Stalingrad, and Moscow simultanously.</li>
+                            <li class="problem-item"><strong>Supply Lines:</strong> Extended supply lines were
+                                constantly sabotaged by partisans.</li>
+                        </ul>
+                    </div>
+
+                    <!-- SECTION 8: THE HOLOCAUST -->
+                    <h2 id="u2.8">2.8 Hitler’s "New Order" & The Holocaust</h2>
+                    <p class="section-intro">The "Final Solution" was Hitler's systematic, industrial-scale genocide of
+                        those he deemed "undesirables," primarily Jewish people.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>Legal Persecution</h4>
+                            <p>The <strong>Nuremberg Laws (1935)</strong> stripped Jews of citizenship and banned
+                                marriage between Jews and non-Jews.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Escalation (Kristallnacht)</h4>
+                            <p>1938's "Night of Broken Glass" saw the destruction of Jewish homes, businesses, and
+                                synagogues across Germany.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Ghettos & Concentration</h4>
+                            <p>Jews were forced into cramped, segregated neighborhoods before being "liquidated" into
+                                forced labor or death camps.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>The Death Camps</h4>
+                            <p>Infamous sites like <strong>Auschwitz</strong> utilized gas chambers and crematoriums,
+                                killing over 6,000 people per day.</p>
+                        </div>
+                    </div>
+
+                    <p>In addition to the 6 million Jews murdered, the Nazis targeted the physically disabled, gay men,
+                        and political dissidents. Notorious physicians like <strong>Josef Mengele</strong> conducted
+                        inhumane medical experiments at Auschwitz to support Nazi racial theories.</p>
+
+                    <!-- SECTION 9: RESISTANCE UPRISINGS -->
+                    <h2 id="u2.9">2.9 Jewish Resistance & The Warsaw Ghetto</h2>
+                    <p class="section-intro">Despite extreme danger, many resisted the Nazi regime through armed revolt
+                        and hidden acts of courage.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Warsaw Ghetto Uprising (1943):</strong> Jews took over the
+                            ghetto and fought for a month against Nazi forces before being crushed.</li>
+                        <li class="problem-item"><strong>The Partisans:</strong> Over 25,000 Jews joined resistance
+                            units in forests, sabotaging German efforts.</li>
+                        <li class="problem-item"><strong>Individual Acts:</strong> Anne Frank's "silent resistance" and
+                            the efforts of nations like Denmark, which saved 7,000 Jews by ferrying them to Sweden.</li>
+                    </ul>
+
+                    <!-- SECTION 10: TOTAL WAR MOBILIZATION -->
+                    <h2 id="u2.10">2.10 Total War & The Global Home Front</h2>
+                    <p class="section-intro">Allied nations committed to <strong>Total War</strong>, dedicating every
+                        economic and societal resource to the conflict.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>Economic Control</h4>
+                            <p>Governments rationed vital goods (rubber, fuel, food) and ordered car factories to
+                                produce tanks and planes.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Women in Service</h4>
+                            <p>Women replaced men in munitions factories and served in auxiliary roles like decoding and
+                                ambulance driving.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Restriction of Rights</h4>
+                            <p>Under pressure, the US forced <strong>Japanese Americans</strong> into internment camps;
+                                Britain confined German and Italian residents.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>War Bonds</h4>
+                            <p>Citizens funded the massive military budgets through government-sponsored war bond
+                                drives.</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 11: TURNING THE TIDE -->
+                    <h2 id="u2.11">2.11 Turning the Tide (1942–1943)</h2>
+                    <p class="section-intro">Key victories across three major fronts—The Pacific, North Africa, and the
+                        Soviet Union—shifted the momentum toward the Allies.</p>
+
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Theater</th>
+                                <th>Key Battle / Turning Point</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>The Pacific</strong></td>
+                                <td><strong>Battle of the Coral Sea</strong></td>
+                                <td>First major Japanese setback; battle fought entirely by aircraft carriers and
+                                    planes.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>North Africa</strong></td>
+                                <td><strong>El Alamein / Operation Torch</strong></td>
+                                <td>Montgomery and Eisenhower defeated Rommel, allowing Allies to cross into Italy.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Soviet Union</strong></td>
+                                <td><strong>Battle of Stalingrad</strong></td>
+                                <td>Hitler's greatest defeat; the 6th Army was destroyed, and Germans were driven back
+                                    toward Berlin.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- SECTION 12: THE ROAD TO VICTORY -->
+                    <h2 id="u2.12">2.12 The Final Stages: D-Day and Yalta</h2>
+                    <p class="section-intro">The final push to liberate Europe began with the largest amphibious
+                        invasion in history and diplomatic planning for the post-war world.</p>
+
+                    <div class="tactical-grid">
+                        <div class="tactical-step">
+                            <span class="step-num">JUNE 6</span>
+                            <span class="step-name">D-Day Invasion</span>
+                            <span class="step-desc">156,000 Allied troops storm the beaches of Normandy, France.</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">AUG 25</span>
+                            <span class="step-name">Liberation of Paris</span>
+                            <span class="step-desc">Allied forces and Resistance fighters free the French capital from
+                                Nazi rule.</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">FEB 45</span>
+                            <span class="step-name">Yalta Conference</span>
+                            <span class="step-desc">Roosevelt, Churchill, and Stalin meet to discuss the final stages of
+                                the war.</span>
+                        </div>
+                    </div>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Air Supremacy:</strong> Constant Allied bombing missions
+                            targeted German factories and defenses ahead of the invasion.</li>
+                        <li class="problem-item"><strong>The Race to Berlin:</strong> Soviet forces reached Berlin from
+                            the East before the Western Allies arrived, securing the city.</li>
+                        <li class="problem-item"><strong>Aftermath:</strong> Survivors live to warn the world of the
+                            tragedy, as similar genocides have occurred in Rwanda, Cambodia, and the Balkans.</li>
+                    </ul>
+                </section>
+
+
+                <!-- UNIT 3 -->
+                <section id="u3-cold-war" class="content-section">
+                    <h1>Unit 3: The Cold War (1945–1991)</h1>
+
+                    <div class="unit-intro">
+                        <p>The Cold War was a 45-year ideological struggle between the democratic United States and the
+                            communist Soviet Union. It brought the world to the brink of nuclear destruction and
+                            transformed global politics through proxy wars and reform movements.</p>
+                    </div>
+
+                    <!-- SECTION 1: RIVALRY & BERLIN -->
+                    <h2 id="u3.1">3.1 Superpower Rivalry & The Iron Curtain</h2>
+                    <p class="section-intro">Berlin became the central flashpoint of Cold War tensions, physically
+                        dividing Europe into democratic West and communist East.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>The Berlin Wall:</strong> A massive concrete barrier created to
+                            prevent low-paid East Germans from fleeing to the democratic West.</li>
+                        <li class="problem-item"><strong>Hungarian Uprising (1956):</strong> Imre Nagy Gain power, ended
+                            one-party rule, and threw out Soviet troops before being crushed by the USSR.</li>
+                        <li class="problem-item"><strong>Polish Unrest:</strong> Economic woes in Poland led to repeated
+                            riots and strikes against Soviet-backed control.</li>
+                    </ul>
+
+                    <!-- SECTION 2: ARMS RACE & DETENTE -->
+                    <h2 id="u3.2">3.2 The Nuclear Arms Race & Detente</h2>
+                    <p class="section-intro">Mutually Assured Destruction (MAD) kept the superpowers from direct
+                        conflict, leading to an era of high-stakes diplomacy.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>Deadly Escalation</h4>
+                            <p>Both sides developed hydrogen bombs and vast stockpiles of nuclear weapons, enough to
+                                destroy civilization several times over.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Arms Reduction</h4>
+                            <p>To reduce the threat, the US and USSR negotiated <strong>SALT</strong> (Strategic Arms
+                                Limitation Talks) and <strong>START</strong> (Reduction) treaties.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Era of Detente</h4>
+                            <p>A period of "relaxation of tensions" in the 1970s where leaders promoted cooperation and
+                                trade.</p>
+                        </div>
+                        <div class="tech-card">
+                            <h4>End of Detente</h4>
+                            <p>The 1979 Soviet invasion of Afghanistan abruptly ended Detente, as the US funneled
+                                weapons to Afghan insurgents.</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: LATIN AMERICA & CUBA -->
+                    <h2 id="u3.3">3.3 Cold War in Latin America: Cuba</h2>
+                    <p class="section-intro">The United States viewed reform movements in Latin America as communist
+                        threats, with Cuba becoming the center of attention.</p>
+
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>The Cuban Revolution:</strong> Fidel Castro organized a
+                            guerrilla army to overthrow the corrupt dictator and imposed harsh authoritarian rule.</li>
+                        <li class="problem-item"><strong>The Missile Crisis (1962):</strong> The threat of Soviet
+                            nuclear bases 90 miles from Florida led to a naval blockade by President Kennedy.</li>
+                        <li class="problem-item"><strong>The Compromise:</strong> Soviets agreed to remove missiles on
+                            the condition that the US would not invade Cuba.</li>
+                    </ul>
+
+                    <!-- SECTION 4: THE KOREAN WAR -->
+                    <h2 id="u3.4">3.4 Proxy Wars in Asia: The Korean War (1950–1953)</h2>
+                    <p class="section-intro">The Korean War was the first Hot War of the Cold War era, changing Western
+                        perceptions of communist expansion.</p>
+
+                    <div class="tactical-grid">
+                        <div class="tactical-step">
+                            <span class="step-num">INVASION</span>
+                            <span class="step-name">June 1950</span>
+                            <span class="step-desc">North Korea (Kim Il Sung) invades the South (Syngman Rhee).</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">COUNTER</span>
+                            <span class="step-name">Inchon Landing</span>
+                            <span class="step-desc">MacArthur's amphibious attack pushes North Koreans back.</span>
+                        </div>
+                        <div class="tactical-step">
+                            <span class="step-num">STALEMATE</span>
+                            <span class="step-name">1953 Armistice</span>
+                            <span class="step-desc">War ends with 4 million dead; the DMZ remains strictly
+                                guarded.</span>
+                        </div>
+                    </div>
+
+                    <p>President Truman refused to use atomic weapons, fearing WWIII, and famously fired General
+                        MacArthur for public disagreement over war strategy.</p>
+
+                    <!-- SECTION 5: THE VIETNAM CONFLICT -->
+                    <h2 id="u3.5">3.5 The Vietnam Conflict (1946–1975)</h2>
+                    <p class="section-intro">Vietnam was a 30-year conflict fought in two phases: first against French
+                        colonialism, then as a Cold War proxy war involving the US.</p>
+
+                    <div class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Guerrilla Warfare</strong></td>
+                                <td>Rebels in the countryside utilized the <strong>Ho Chi Minh Trail</strong> for
+                                    supplies.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gulf of Tonkin (1964)</strong></td>
+                                <td>Gave the US President broad war powers; led to 550,000 troops by 1968.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tet Offensive (1968)</strong></td>
+                                <td>A massive communist attack that damaged US credibility and public support.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fall of Saigon (1975)</strong></td>
+                                <td>Saigon falls to the North; Vietnam is unified under communism.</td>
+                            </tr>
+                        </tbody>
+                        </table>
+
+                        <!-- SECTION 6: SOVIET COMMAND ECONOMY -->
+                        <h2 id="u3.6">3.6 Soviet Command Economy & Internal Life</h2>
+                        <p class="section-intro">The Soviet Union controlled most aspects of public life, valuing
+                            obedience and economic security over individual freedom.</p>
+
+                        <ul class="problem-list">
+                            <li class="problem-item"><strong>Inefficiency:</strong> A huge bureaucracy decided
+                                production rather than supply and demand, leading to waste and consumer shortages.</li>
+                            <li class="problem-item"><strong>Agricultural Failure:</strong> Collectivized farming was so
+                                unproductive that the USSR had to import grain from the West.</li>
+                            <li class="problem-item"><strong>Political Repression:</strong> While Khrushchev sought
+                                "peaceful coexistence," Brezhnev reinstated terror and jailed dissidents.</li>
+                        </ul>
+
+                        <!-- SECTION 7: AFGHANISTAN & CAMBODIA -->
+                        <h2 id="u3.7">3.7 Regional Conflicts: Afghanistan & Cambodia</h2>
+                        <p class="section-intro">In late 1979, the Soviets faced their own "Vietnam" in Afghanistan,
+                            while Cambodia spiraled into genocide.</p>
+
+                        <ul class="problem-list">
+                            <li class="problem-item"><strong>Afghanistan (1979–1989):</strong> The USSR invaded to
+                                support a communist government, facing a 10-year battle against US-backed insurgents.
+                            </li>
+                            <li class="problem-item"><strong>The Khmer Rouge:</strong> Led by Pol Pot, they unleashed a
+                                reign of terror in Cambodia until Vietnam invaded in 1979 to end the genocide.</li>
+                            <li class="problem-item"><strong>Justice:</strong> International Tribunals were later
+                                established to try Khmer Rouge leaders for crimes against humanity.</li>
+                        </ul>
+
+                        <!-- SECTION 8: THE AGE OF REFORM -->
+                        <h2 id="u3.8">3.8 Gorbachev’s Age of Reform (1985–1991)</h2>
+                        <p class="section-intro">Mikhail Gorbachev sought to reform—not collapse—the Soviet system
+                            through three revolutionary pillars.</p>
+
+                        <div class="tech-grid">
+                            <div class="tech-card">
+                                <h4>Glasnost (Openness)</h4>
+                                <p>Allowed public criticism, local control, and the publication of new history books and
+                                    intellectual works.</p>
+                            </div>
+                            <div class="tech-card">
+                                <h4>Perestroika (Restructuring)</h4>
+                                <p>Introduced private ownership, decentralization, and foreign investment to fix the
+                                    stagnant economy.</p>
+                            </div>
+                            <div class="tech-card">
+                                <h4>Demokratizatsiya</h4>
+                                <p>Encouraged political participation through secret ballots, multiple candidates, and
+                                    10-year term limits.</p>
+                            </div>
+                            <div class="tech-card">
+                                <h4>Economic Reality</h4>
+                                <p>By 1988, the USSR had only 10,000 personal computers while the US had millions,
+                                    highlighting the tech gap.</p>
+                            </div>
+                        </div>
+
+                        <p>Despite these efforts, by 1991 the empire disintegrated, the Berlin Wall was torn down, and
+                            the Soviet Union dissolved into independent states.</p>
+                </section>
+
+                <!-- UNIT 4 -->
+                <section id="u4-decolonization" class="content-section">
+                    <h1>Unit 4: Decolonization</h1>
+
+                    <h2 id="u4.1">4.1 Precolonial Ghana: Kingdoms and Trade</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Home to several successful kingdoms like the Dogomba and the Ashanti
+                            (who settled near the forest line).</li>
+                        <li class="problem-item">By the 15th century, substantial trade was conducted with sub-Saharan
+                            peoples to the north.</li>
+                    </ul>
+
+                    <h2 id="u4.2">4.2 European Arrival & The Gold Coast</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">The Portuguese arrived in 1482 and built a fort at Elmina; the region
+                            became a major provider of gold for Europe.</li>
+                        <li class="problem-item">By the 16th century, the slave trade had become a major interest; 20%
+                            of enslaved people taken from Africa were exported through this region.</li>
+                    </ul>
+
+                    <h2 id="u4.3">4.3 Post-WWII Fervor & The Road to Sovereignty</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Nationalist fervor grew after World War II, and local legislative
+                            council elections were held as early as 1925.</li>
+                        <li class="problem-item">The UK eventually allowed more self-government in response to mounting
+                            internal pressure.</li>
+                    </ul>
+
+                    <h2 id="u4.4">4.4 Kwame Nkrumah & Transition to Power</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Nkrumah’s **Convention People's Party (CPP)** became the dominant
+                            political organization; he became Premier after a 1951 constitution change.</li>
+                        <li class="problem-item">On March 6, 1957, the Gold Coast gained independence and was renamed
+                            **Ghana** in honor of the ancient empire.</li>
+                    </ul>
+
+                    <h2 id="u4.5">4.5 The Shift to African Socialism</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Nkrumah’s desire for a centralized "African Socialist" state met with
+                            dissension; he began treating critics harshly.</li>
+                        <li class="problem-item">By 1960, Ghana became a republic with Nkrumah as President, but he
+                            began outlawing other political parties.</li>
+                    </ul>
+
+                    <h2 id="u4.6">4.6 Economic Turmoil & Debt</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Falling cacao prices and poorly financed development projects caused
+                            the economy to suffer.</li>
+                        <li class="problem-item">By 1966, Ghana was deep in debt, and Nkrumah was eventually overthrown.
+                        </li>
+                    </ul>
+
+                    <h2 id="u4.7">4.7 Independence Impacts on Africa</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Ghana was the first African country to gain independence from Britain;
+                            its success and struggle served as a blueprint for the rest of the continent.</li>
+                    </ul>
+                </section>
+
+                <!-- UNIT 5 -->
+                <section id="u5-india-china" class="content-section">
+                    <h1>Unit 5: India & China</h1>
+
+                    <h2 id="u5.1">5.1 Trouble in the Chinese Republic (1911–1925)</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Sun Yixian (father of modern China) struggled with warlords who seized
+                            provincial power; the cultural May Fourth Movement challenged traditions.</li>
+                        <li class="problem-item">Sun accepted aid from the Soviet Union to build the **Guomindang
+                            (Nationalists)** into a modern force.</li>
+                    </ul>
+
+                    <h2 id="u5.2">5.2 Mao Zedong's Communist Theory</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Mao was a young revolutionary from peasant origins; he believed
+                            communism should seek support from the peasant masses rather than the small working class.
+                        </li>
+                    </ul>
+
+                    <h2 id="u5.3">5.3 The Long March (1934–1935)</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Nationalist leader Jiang Jieshi led "extermination campaigns" against
+                            the communists (the "Red bandits").</li>
+                        <li class="problem-item">Mao and 100,000 followers led a year-long retreat known as the **Long
+                            March**; only 20,000 survived through guerrilla tactics.</li>
+                    </ul>
+
+                    <h2 id="u5.4">5.4 Japanese Invasions & The Rape of Nanjing</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Japan invaded Manchuria in 1931; in 1937, they struck China's cultural
+                            center in the **"Rape of Nanjing,"** killing hundreds of thousands of civilians.</li>
+                        <li class="problem-item">The invasion forced a temporary alliance between the Guomindang and the
+                            Communists to fight the invaders.</li>
+                    </ul>
+
+                    <h2 id="u5.5">5.5 Indian National Congress & Nationalism (1885)</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Formed in 1885 by middle-class Indians to seek self-rule; the **Muslim
+                            League (1906)** was created later to protect Muslim minority rights.</li>
+                        <li class="problem-item">The 1919 **Amritsar Massacre** (400 killed) turned the movement toward
+                            full independence.</li>
+                    </ul>
+
+                    <h2 id="u5.6">5.6 Mahatma Gandhi & Satyagraha</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">Gandhi promoted **Ahimsa** (nonviolence) and **Satyagraha** (soul
+                            force); he encouraged civil disobedience inspired by Thoreau.</li>
+                    </ul>
+
+                    <h2 id="u5.7">5.7 The Salt March (1930)</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">In 1930, Gandhi led a 240-mile march to the sea to protest the British
+                            monopoly on salt; 60,000 marchers were arrested.</li>
+                        <li class="problem-item">He promoted the **spinning wheel** and the dhoti to reject British
+                            textiles and restore national pride.</li>
+                    </ul>
+
+                    <h2 id="u5.8">5.8 Modern Indian Economy & Growth</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">India establishment democratic governance after 1947; the **Green
+                            Revolution** solved food security issues via technology.</li>
+                        <li class="problem-item">Today, India is a global tech hub with a highly educated IT sector,
+                            though it still faces poverty across a high rural population.</li>
+                    </ul>
+                </section>
+
+                <section id="u6-middle-east" class="content-section">
+                    <h1>Unit 6: Middle East</h1>
+                    <h2 id="u6.1">6.1 Ottoman Challenges & Transitions</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">The once-powerful Ottoman Empire faced decline due to internal ethnic
+                            diversity and external European pressure.</li>
+                        <li class="problem-item">Post-war regional changes led to the formation of new national
+                            identities and modern state borders.</li>
+                    </ul>
+                </section>
+
+                <section id="u7-latin-america" class="content-section">
+                    <h1>Unit 7: Latin America</h1>
+                    <h2 id="u7.1">7.1 Cuban Revolution & Fidel Castro</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item"><strong>Fidel Castro & Che Guevara:</strong> Overthrew the Batista
+                            dictatorship (1959); Castro nationalized US assets, causing an immediate embargo.</li>
+                        <li class="problem-item"><strong>Bay of Pigs (1961):</strong> A failed CIA-backed invasion by
+                            exiles that pushed Cuba closer to the Soviet Union.</li>
+                    </ul>
+                    <h2 id="u7.2">7.2 Missile Crisis Impact</h2>
+                    <ul class="problem-list">
+                        <li class="problem-item">The threat of Soviet nuclear bases on the island led to a US naval
+                            blockade by Kennedy; it was the closest the world came to nuclear war.</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="doc-footer">
+                <div class="footer-content">
+                    <span>&copy; 2026 Vihari Battula. All rights reserved.</span>
+                    <div class="footer-links">
+                        <a href="https://activestem.org" target="_blank">ActiveSTEM.org</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
