@@ -59,10 +59,12 @@
         <div class="brand" onclick="navigateTo('intro-page')">
             Vihari Battula <span>Modern History Notebook</span>
         </div>
-        <div>
-            <span style="font-size:12px; color:var(--muted); margin-right:12px;">Last updated: <span
-                    id="dateDisplay"></span></span>
-            <button class="btn-reveal" onclick="window.print()">Print Syllabus PDF</button>
+        <div class="header-right">
+            <span class="last-updated">Last updated: <span id="dateDisplay"></span></span>
+            <button class="btn-reveal print-btn" onclick="window.print()">Print Syllabus PDF</button>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
 
@@ -78,105 +80,139 @@
                 </div>
             </div>
 
-            <!-- UNIT 1 -->
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 1: World at War (WWI)</button>
+            <div class="nav-group">
+                <button class="nav-header" onclick="toggleGroup(this)">Curriculum Units</button>
                 <div class="nav-links-container">
-                    <a onclick="navigateTo('u1-world-war')" class="nav-item" id="nav-u1-world-war">Unit Overview</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.1')" class="nav-sub">1.1 Primary Causes (M.A.I.N.)</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.2')" class="nav-sub">1.2 Troops & Civilians</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.3')" class="nav-sub">1.3 New Technologies</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.4')" class="nav-sub">1.4 Total War Impact</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.5')" class="nav-sub">1.5 Treaty of Versailles</a>
-                    <a onclick="navigateTo('u1-world-war', 'u1.6')" class="nav-sub">1.6 Russian Revolution</a>
-                </div>
-            </div>
+                    <!-- UNIT 1 -->
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 1: World at War
+                            (WWI)</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u1-world-war')" class="nav-item" id="nav-u1-world-war">Unit
+                                Overview</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.1')" class="nav-sub">1.1 Primary Causes
+                                (M.A.I.N.)</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.2')" class="nav-sub">1.2 Troops & Civilians</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.3')" class="nav-sub">1.3 New Technologies</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.4')" class="nav-sub">1.4 Total War Impact</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.5')" class="nav-sub">1.5 Treaty of Versailles</a>
+                            <a onclick="navigateTo('u1-world-war', 'u1.6')" class="nav-sub">1.6 Russian Revolution</a>
+                        </div>
+                    </div>
 
 
-            <!-- UNIT 2 -->
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 2: World War 2</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u2-world-war')" class="nav-item" id="nav-u2-world-war">Unit Overview</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.1')" class="nav-sub">2.1 Rise of Dictators</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.2')" class="nav-sub">2.2 Munich & Poland</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.3')" class="nav-sub">2.3 Blitzkrieg Tactics</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.4')" class="nav-sub">2.4 Soviet Expansion</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.5')" class="nav-sub">2.5 Fall of Western Europe</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.6')" class="nav-sub">2.6 Vichy & Resistance</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.7')" class="nav-sub">2.7 Operation Barbarossa</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.8')" class="nav-sub">2.8 The Holocaust</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.9')" class="nav-sub">2.9 Resistance Uprisings</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.10')" class="nav-sub">2.10 Total War Mobilization</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.11')" class="nav-sub">2.11 Turning the Tide</a>
-                    <a onclick="navigateTo('u2-world-war', 'u2.12')" class="nav-sub">2.12 Final Stages: D-Day</a>
-                </div>
-            </div>
+                    <!-- UNIT 2 -->
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 2: World War
+                            2</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u2-world-war')" class="nav-item" id="nav-u2-world-war">Unit
+                                Overview</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.1')" class="nav-sub">2.1 Rise of Dictators</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.2')" class="nav-sub">2.2 Munich & Poland</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.3')" class="nav-sub">2.3 Blitzkrieg Tactics</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.4')" class="nav-sub">2.4 Soviet Expansion</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.5')" class="nav-sub">2.5 Fall of Western
+                                Europe</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.6')" class="nav-sub">2.6 Vichy & Resistance</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.7')" class="nav-sub">2.7 Operation Barbarossa</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.8')" class="nav-sub">2.8 The Holocaust</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.9')" class="nav-sub">2.9 Resistance Uprisings</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.10')" class="nav-sub">2.10 Total War
+                                Mobilization</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.11')" class="nav-sub">2.11 Turning the Tide</a>
+                            <a onclick="navigateTo('u2-world-war', 'u2.12')" class="nav-sub">2.12 Final Stages:
+                                D-Day</a>
+                        </div>
+                    </div>
 
-            <!-- UNIT 3 -->
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 3: Cold War</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u3-cold-war')" class="nav-item" id="nav-u3-cold-war">Unit Overview</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.1')" class="nav-sub">3.1 Superpower Rivalry</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.2')" class="nav-sub">3.2 Nuclear Arms Race</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.3')" class="nav-sub">3.3 Cold War in Latin America</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.4')" class="nav-sub">3.4 The Korean War</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.5')" class="nav-sub">3.5 The Vietnam Conflict</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.6')" class="nav-sub">3.6 Soviet Command Economy</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.7')" class="nav-sub">3.7 Afghanistan & Cambodia</a>
-                    <a onclick="navigateTo('u3-cold-war', 'u3.8')" class="nav-sub">3.8 Gorbachev's Reforms</a>
-                </div>
-            </div>
+                    <!-- UNIT 3 -->
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 3: Cold War</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u3-cold-war')" class="nav-item" id="nav-u3-cold-war">Unit
+                                Overview</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.1')" class="nav-sub">3.1 Superpower Rivalry</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.2')" class="nav-sub">3.2 Nuclear Arms Race</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.3')" class="nav-sub">3.3 Cold War in Latin
+                                America</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.4')" class="nav-sub">3.4 The Korean War</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.5')" class="nav-sub">3.5 The Vietnam Conflict</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.6')" class="nav-sub">3.6 Soviet Command
+                                Economy</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.7')" class="nav-sub">3.7 Afghanistan &
+                                Cambodia</a>
+                            <a onclick="navigateTo('u3-cold-war', 'u3.8')" class="nav-sub">3.8 Gorbachev's Reforms</a>
+                        </div>
+                    </div>
 
-            <!-- UNIT 4 -->
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 4: Decolonization</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u4-decolonization')" class="nav-item" id="nav-u4-decolonization">Unit
-                        Overview</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.1')" class="nav-sub">4.1 Precolonial Ghana</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.2')" class="nav-sub">4.2 European Arrival</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.3')" class="nav-sub">4.3 Post-WWII Fervor</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.4')" class="nav-sub">4.4 Kwame Nkrumah</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.5')" class="nav-sub">4.5 African Socialism</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.6')" class="nav-sub">4.6 Economic Turmoil</a>
-                    <a onclick="navigateTo('u4-decolonization', 'u4.7')" class="nav-sub">4.7 Independence Impacts</a>
-                </div>
-            </div>
+                    <!-- UNIT 4 -->
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 4:
+                            Decolonization</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u4-decolonization')" class="nav-item"
+                                id="nav-u4-decolonization">Unit
+                                Overview</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.1')" class="nav-sub">4.1 Precolonial
+                                Ghana</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.2')" class="nav-sub">4.2 European
+                                Arrival</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.3')" class="nav-sub">4.4 Kwame Nkrumah</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.5')" class="nav-sub">4.5 African
+                                Socialism</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.6')" class="nav-sub">4.6 Economic
+                                Turmoil</a>
+                            <a onclick="navigateTo('u4-decolonization', 'u4.7')" class="nav-sub">4.7 Independence
+                                Impacts</a>
+                        </div>
+                    </div>
 
-            <!-- UNIT 5 -->
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 5: India & China</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u5-india-china')" class="nav-item" id="nav-u5-india-china">Unit Overview</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.1')" class="nav-sub">5.1 Chinese Republic</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.2')" class="nav-sub">5.2 Mao Zedong's Theory</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.3')" class="nav-sub">5.3 The Long March</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.4')" class="nav-sub">5.4 Japanese Invasions</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.5')" class="nav-sub">5.5 Indian Nationalism (1885)</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.6')" class="nav-sub">5.6 Gandhi's Satyagraha</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.7')" class="nav-sub">5.7 The Salt March</a>
-                    <a onclick="navigateTo('u5-india-china', 'u5.8')" class="nav-sub">5.8 Modern Indian Economy</a>
-                </div>
-            </div>
+                    <!-- UNIT 5 -->
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 5: India &
+                            China</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u5-india-china')" class="nav-item" id="nav-u5-india-china">Unit
+                                Overview</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.1')" class="nav-sub">5.1 Chinese Republic</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.2')" class="nav-sub">5.2 Mao Zedong's
+                                Theory</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.3')" class="nav-sub">5.3 The Long March</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.4')" class="nav-sub">5.4 Japanese Invasions</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.5')" class="nav-sub">5.5 Indian Nationalism
+                                (1885)</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.6')" class="nav-sub">5.6 Gandhi's
+                                Satyagraha</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.7')" class="nav-sub">5.7 The Salt March</a>
+                            <a onclick="navigateTo('u5-india-china', 'u5.8')" class="nav-sub">5.8 Modern Indian
+                                Economy</a>
+                        </div>
+                    </div>
 
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 6: Middle East</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u6-middle-east')" class="nav-item" id="nav-nav-u6-middle-east">Regional
-                        Overview</a>
-                    <a onclick="navigateTo('u6-middle-east', 'u6.1')" class="nav-sub">6.1 Ottoman Challenges</a>
-                </div>
-            </div>
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 6: Middle
+                            East</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u6-middle-east')" class="nav-item"
+                                id="nav-nav-u6-middle-east">Regional
+                                Overview</a>
+                            <a onclick="navigateTo('u6-middle-east', 'u6.1')" class="nav-sub">6.1 Ottoman Challenges</a>
+                        </div>
+                    </div>
 
-            <div class="nav-group collapsed">
-                <button class="nav-header" onclick="toggleGroup(this)">Unit 7: Latin America</button>
-                <div class="nav-links-container">
-                    <a onclick="navigateTo('u7-latin-america')" class="nav-item" id="nav-nav-u7-latin-america">Regional
-                        Overview</a>
-                    <a onclick="navigateTo('u7-latin-america', 'u7.1')" class="nav-sub">7.1 Cuban Revolution</a>
-                    <a onclick="navigateTo('u7-latin-america', 'u7.2')" class="nav-sub">7.2 Missile Crisis Impact</a>
+                    <div class="nav-group collapsed">
+                        <button class="nav-header sub-nav-header" onclick="toggleGroup(this)">Unit 7: Latin
+                            America</button>
+                        <div class="nav-links-container">
+                            <a onclick="navigateTo('u7-latin-america')" class="nav-item"
+                                id="nav-nav-u7-latin-america">Regional
+                                Overview</a>
+                            <a onclick="navigateTo('u7-latin-america', 'u7.1')" class="nav-sub">7.1 Cuban Revolution</a>
+                            <a onclick="navigateTo('u7-latin-america', 'u7.2')" class="nav-sub">7.2 Missile Crisis
+                                Impact</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -420,6 +456,22 @@
                         <li class="problem-item">The Soviets eventually supported the Bolsheviks' promise of <span
                                 class="highlight-red">"Peace, Land, and Bread."</span></li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: The Great War</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>Focus on the M.A.I.N. connections:</strong> Don't just memorize the acronym.
+                                Understand how Imperialism (the search for resources) fueled Militarism (the arms race
+                                to protect those resources). Everything is linked.</p>
+                            <p><strong>The Russian Revolution Tip:</strong> Remember that Russia didn't just 'leave' the
+                                war. The internal collapse was a direct result of the war's pressure. Think of WWI as
+                                the catalyst, not just the background.</p>
+                            <div class="tips-cta">Essential: Review the Treaty of Versailles—it sets the stage for
+                                everything that follows in Unit 2.</div>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- UNIT 2 -->
@@ -722,6 +774,22 @@
                         <li class="problem-item"><strong>Aftermath:</strong> Survivors live to warn the world of the
                             tragedy, as similar genocides have occurred in Rwanda, Cambodia, and the Balkans.</li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: Global Conflict</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>Appeasement vs. Total War:</strong> Notice the shift in mindset. From trying to
+                                avoid war at any cost (Munich) to committing every single societal resource to winning
+                                it (Total War). This transition is the defining political shift of the 1930s-40s.</p>
+                            <p><strong>Strategic Failures:</strong> When studying Operation Barbarossa, focus on the
+                                'why'—Hitler's ideological arrogance led to tactical blunders (timing, winter prep).
+                                History is often decided by logistics as much as by battles.</p>
+                            <div class="tips-cta">Key Takeaway: The 'New Order' wasn't just about territory; it was a
+                                radical, destructive racial reorganization of Europe.</div>
+                        </div>
+                    </div>
                 </section>
 
 
@@ -910,6 +978,22 @@
 
                         <p>Despite these efforts, by 1991 the empire disintegrated, the Berlin Wall was torn down, and
                             the Soviet Union dissolved into independent states.</p>
+                        <div class="study-tips-section">
+                            <div class="tips-header">
+                                <div class="tips-icon">🎓</div>
+                                <div class="tips-title">Study Guide: The Cold War</div>
+                            </div>
+                            <div class="tips-content">
+                                <p><strong>Ideology vs. Action:</strong> The Cold War is unique because it's a war of
+                                    ideas that manifests in physical proxy wars (Korea, Vietnam). Always ask: How does
+                                    this specific conflict serve the interests of the US or USSR?</p>
+                                <p><strong>The Nuclear Factor:</strong> Understand Mutually Assured Destruction (MAD).
+                                    It's the reason the Cold War stayed 'Cold' between the superpowers but turned 'Hot'
+                                    in the developing world.</p>
+                                <div class="tips-cta">Essential: Contrast Gorbachev's Glasnost (openness) with the rigid
+                                    Soviet policies of the earlier decades.</div>
+                            </div>
+                        </div>
                 </section>
 
                 <!-- UNIT 4 -->
@@ -969,6 +1053,22 @@
                         <li class="problem-item">Ghana was the first African country to gain independence from Britain;
                             its success and struggle served as a blueprint for the rest of the continent.</li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: Decolonization</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>The 'Double Burden':</strong> Newly independent nations didn't just inherit land;
+                                they inherited broken economies and colonial-era borders. Think about how Ghana's
+                                'African Socialism' was an attempt to break these cycles.</p>
+                            <p><strong>Leadership Styles:</strong> Compare Nkrumah's vision of Pan-Africanism with the
+                                local reality of economic turmoil. The gap between vision and reality is where most
+                                post-colonial history happens.</p>
+                            <div class="tips-cta">Key Concept: Decolonization wasn't just a political exit; it was a
+                                psychological and economic struggle for self-identity.</div>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- UNIT 5 -->
@@ -1035,6 +1135,23 @@
                         <li class="problem-item">Today, India is a global tech hub with a highly educated IT sector,
                             though it still faces poverty across a high rural population.</li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: India & China</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>Revolutionary Paths:</strong> Notice the difference. China's revolution became a
+                                massive restructuring of the social order via Maoism. India's path was defined by
+                                Gandhi's Satyagraha (non-violent resistance). Both achieved independence, but with very
+                                different social outcomes.</p>
+                            <p><strong>Economic Evolution:</strong> Look at 'Modern India'. It's a story of moving from
+                                a colonial resource-base to a global IT and services powerhouse. This didn't happen by
+                                accident; it was a result of specific 20th-century policies.</p>
+                            <div class="tips-cta">Pro-Tip: When studying Gandhi, focus on the 'Salt March' as a
+                                masterclass in symbolic political action.</div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="u6-middle-east" class="content-section">
@@ -1046,6 +1163,22 @@
                         <li class="problem-item">Post-war regional changes led to the formation of new national
                             identities and modern state borders.</li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: Middle East</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>The Post-Empire Vacuum:</strong> The fall of the Ottoman Empire created a power
+                                vacuum that European powers tried to fill. Modern Middle Eastern borders are often
+                                'artificial' lines drawn in 1919-1920.</p>
+                            <p><strong>Nationalism vs. Globalism:</strong> Watch how regional identities clash with
+                                late-20th-century global political interests, especially regarding resources (oil) and
+                                strategic location.</p>
+                            <div class="tips-cta">Key Takeaway: You cannot understand the modern Middle East without
+                                understanding the collapse of Ottoman authority after WWI.</div>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="u7-latin-america" class="content-section">
@@ -1062,6 +1195,22 @@
                         <li class="problem-item">The threat of Soviet nuclear bases on the island led to a US naval
                             blockade by Kennedy; it was the closest the world came to nuclear war.</li>
                     </ul>
+                    <div class="study-tips-section">
+                        <div class="tips-header">
+                            <div class="tips-icon">🎓</div>
+                            <div class="tips-title">Study Guide: Latin America</div>
+                        </div>
+                        <div class="tips-content">
+                            <p><strong>Cold War Proximity:</strong> For Latin America, the Cold War wasn't just a global
+                                struggle; it was 'in the backyard'. The Cuban Missile Crisis shows how a local
+                                revolution can escalate into a global nuclear threat.</p>
+                            <p><strong>Sovereignty vs. Influence:</strong> Focus on the struggle between local reform
+                                movements (like Castro's) and the massive geopolitical influence of the United States.
+                                This tension defines much of 20th-century Latin American history.</p>
+                            <div class="tips-cta">Summary Idea: The region became a laboratory for Cold War ideologies
+                                and containment policies.</div>
+                        </div>
+                    </div>
                 </section>
 
             </div>
