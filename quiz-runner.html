@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment | Modern History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+
+<body class="quiz-page-body">
+
+    <!-- Simple Header (Matching main site style but simplified) -->
+    <header class="header">
+        <div class="brand">
+            Vihari Battula <span>Assessment Portal</span>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="btn-reveal">Exit Assessment</a>
+        </div>
+    </header>
+
+    <div class="app-container" style="display: block;"> <!-- Block display to allow custom internal layout -->
+
+        <div class="quiz-layout">
+            <!-- Main Content: Questions -->
+            <main class="quiz-main">
+                <div class="quiz-container">
+                    <header class="quiz-header">
+                        <h1 class="quiz-title" id="quiz-title">Loading Assessment...</h1>
+                        <div class="quiz-subtitle" id="quiz-subtitle">Please wait</div>
+                    </header>
+
+                    <form id="quiz-form">
+                        <div id="questions-container"></div>
+
+                        <div id="score-display"></div>
+
+                        <div class="action-bar">
+                            <button type="button" id="submit-btn" class="btn-submit">Submit Assessment</button>
+                            <button type="button" id="variant-btn" class="btn-submit"
+                                style="display: none; background-color: var(--accent);">Take Alternate Variant</button>
+                            <button type="button" id="retry-btn" class="btn-home" style="display: none;">Retry This
+                                Variant</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+
+            <!-- Sidebar: Timer & Checklist -->
+            <aside class="quiz-sidebar">
+                <div class="timer-box">
+                    <div class="timer-label">Time Remaining</div>
+                    <div class="timer-display" id="timer">00:00</div>
+                </div>
+
+                <div class="checklist-title">
+                    Question Navigator
+                    <span style="font-size: 11px; font-weight: 400; color: var(--muted);">Click to jump</span>
+                </div>
+                <div class="nav-grid" id="nav-grid">
+                    <!-- Nav buttons injected here -->
+                </div>
+
+                <hr class="custom-hr" style="margin: 24px 0;">
+
+                <div style="font-size: 12px; color: var(--muted);">
+                    <div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <span
+                            style="width: 12px; height: 12px; background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 2px; display: inline-block;"></span>
+                        Answered
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span
+                            style="width: 12px; height: 12px; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 2px; display: inline-block;"></span>
+                        Mark for Review
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <!-- Review Warning Modal -->
+    <div id="review-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <div class="modal-title">Questions Under Review!</div>
+            <div class="modal-text" id="modal-text">
+                You have questions marked for review. It's better to provide an answer for every question before
+                submitting.
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal()">Back to Quiz</button>
+                <button type="button" class="btn-danger" onclick="confirmSubmit()">Submit Anyway</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the data file first -->
+    <script src="js/quiz-data.js"></script>
+
+    <script>
+        // Get Quiz ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const quizId = urlParams.get('id');
+
+        let currentQuizData = null;
+        let timerInterval = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!window.QUIZ_DATA || !quizId || !window.QUIZ_DATA[quizId]) {
+                document.getElementById('quiz-title').textContent = "Assessment Not Found";
+                document.getElementById('quiz-subtitle').textContent = "Please return to the curriculum and select a valid quiz.";
+                document.getElementById('submit-btn').style.display = 'none';
+                return;
+            }
+
+            currentQuizData = window.QUIZ_DATA[quizId];
+            renderQuiz(currentQuizData);
+            startTimer(quizId.includes('final') ? 60 : 20); // 60 mins for Final, 20 for Units
+        });
+
+        function renderQuiz(data) {
+            document.getElementById('quiz-title').textContent = data.title;
+            document.getElementById('quiz-subtitle').textContent = data.subtitle;
+            const container = document.getElementById('questions-container');
+            const navGrid = document.getElementById('nav-grid');
+
+            container.innerHTML = '';
+            navGrid.innerHTML = '';
+
+            data.questions.forEach((q, index) => {
+                // 1. Create Question Card
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-${index}`;
+
+                // Header
+                const header = document.createElement('div');
+                header.className = 'q-header';
+                header.innerHTML = `
+                    <div class="q-number-label">Question ${index + 1}</div>
+                    <button type="button" class="mark-btn" id="mark-btn-${index}" onclick="toggleFlag(${index})">
+                        <span>⚑</span> Mark for Review
+                    </button>
+                `;
+                card.appendChild(header);
+
+                // Body
+                const body = document.createElement('div');
+                body.className = 'q-body';
+
+                // Instruction Type Badge/Text
+                const instruction = document.createElement('div');
+                instruction.className = 'q-instruction';
+                instruction.innerHTML = `<span>➔</span> ${getErrorFreeType(q.type)}: ${getInstructionText(q.type)}`;
+                body.appendChild(instruction);
+
+                // Question Text
+                const text = document.createElement('div');
+                text.className = 'q-text';
+                text.textContent = q.text;
+                body.appendChild(text);
+
+                // Input Area
+                if (q.type === 'multiple_choice') {
+                    const grid = document.createElement('div');
+                    grid.className = 'options-grid';
+                    q.options.forEach(opt => {
+                        const label = document.createElement('label');
+                        label.className = 'option-label';
+                        label.innerHTML = `<input type="radio" name="q${index}" value="${opt.key}" onchange="selectOption(${index}, this)"> ${opt.text}`;
+                        grid.appendChild(label);
+                    });
+                    body.appendChild(grid);
+                } else if (q.type === 'short_answer' || q.type === 'essay') {
+                    const textarea = document.createElement('textarea');
+                    textarea.className = 'manual-answer';
+                    textarea.name = `q${index}`;
+                    textarea.placeholder = "Type your response here...";
+                    if (q.type === 'essay') textarea.style.minHeight = '200px';
+                    textarea.addEventListener('input', () => updateNav(index));
+                    body.appendChild(textarea);
+                }
+
+                // Feedback Container
+                const feedback = document.createElement('div');
+                feedback.id = `feedback-q${index}`;
+                feedback.className = 'feedback';
+                body.appendChild(feedback);
+
+                // Reflection Note for subjective Qs
+                const reflection = document.createElement('div');
+                reflection.id = `reflection-q${index}`;
+                reflection.className = 'reflection-note';
+                body.appendChild(reflection);
+
+                card.appendChild(body);
+                container.appendChild(card);
+
+                // 2. Create Nav Button
+                const navBtn = document.createElement('div');
+                navBtn.className = 'nav-btn';
+                navBtn.id = `nav-${index}`;
+                navBtn.textContent = index + 1;
+                navBtn.onclick = () => {
+                    const el = document.getElementById(`q-${index}`);
+                    const offset = 100; // Account for fixed header
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = el.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                };
+                navGrid.appendChild(navBtn);
+            });
+        }
+
+        function getErrorFreeType(type) {
+            if (type === 'multiple_choice') return 'Multiple Choice';
+            if (type === 'short_answer') return 'Short Answer';
+            if (type === 'essay') return 'Essay Analysis';
+            return 'Question';
+        }
+
+        function getInstructionText(type) {
+            if (type === 'multiple_choice') return 'Select the single best answer.';
+            if (type === 'short_answer') return 'Provide a concise factual response (1-2 sentences).';
+            if (type === 'essay') return 'Provide a detailed analysis (200-400 words).';
+            return 'Respond to the prompt below.';
+        }
+
+        function selectOption(index, input) {
+            // Remove selected class from siblings
+            const labels = input.closest('.options-grid').querySelectorAll('.option-label');
+            labels.forEach(l => l.classList.remove('selected'));
+            input.parentElement.classList.add('selected');
+            updateNav(index);
+        }
+
+        function updateNav(index) {
+            const navBtn = document.getElementById(`nav-${index}`);
+            navBtn.classList.add('answered');
+        }
+
+        function toggleFlag(index) {
+            const navBtn = document.getElementById(`nav-${index}`);
+            const btn = document.getElementById(`mark-btn-${index}`);
+            btn.classList.toggle('active');
+            navBtn.classList.toggle('flagged');
+
+            if (btn.classList.contains('active')) {
+                btn.innerHTML = `<span>✖</span> Unmark Question`;
+            } else {
+                btn.innerHTML = `<span>⚑</span> Mark for Review`;
+            }
+        }
+
+        function startTimer(minutes) {
+            let totalSeconds = minutes * 60;
+            const display = document.getElementById('timer');
+
+            timerInterval = setInterval(() => {
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+                display.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+                if (totalSeconds <= 300) { // 5 mins left
+                    display.classList.add('warning');
+                }
+
+                if (totalSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time is up! Submitting assessment automatically.");
+                    confirmSubmit();
+                }
+                totalSeconds--;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        document.getElementById('submit-btn').addEventListener('click', handlePreSubmit);
+
+        function handlePreSubmit() {
+            const flaggedCount = document.querySelectorAll('.nav-btn.flagged').length;
+            if (flaggedCount > 0) {
+                document.getElementById('modal-text').innerHTML = `You have <strong>${flaggedCount}</strong> question(s) marked for review. It is better to provide an answer for every problem than leaving it blank!`;
+                document.getElementById('review-modal').style.display = 'flex';
+            } else {
+                confirmSubmit();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('review-modal').style.display = 'none';
+        }
+
+        function confirmSubmit() {
+            closeModal();
+            stopTimer();
+            let score = 0;
+            let gradedCount = 0;
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => input.disabled = true);
+
+            // Hide Mark buttons
+            document.querySelectorAll('.mark-btn').forEach(btn => btn.style.display = 'none');
+
+            currentQuizData.questions.forEach((q, index) => {
+                const qKey = `q${index}`;
+                const feedbackDiv = document.getElementById(`feedback-q${index}`);
+                const reflectionDiv = document.getElementById(`reflection-q${index}`);
+                const card = document.getElementById(`q-${index}`);
+                const navBtn = document.getElementById(`nav-${index}`);
+
+                const response = formData.get(qKey);
+
+                if (q.type === 'multiple_choice') {
+                    gradedCount++;
+                    if (response === q.correctAnswer) {
+                        score++;
+                        feedbackDiv.innerHTML = `<strong>✓ Correct</strong> ${q.explanation}`;
+                        feedbackDiv.className = 'feedback correct';
+                        card.style.borderColor = '#22c55e';
+                        navBtn.style.backgroundColor = '#22c55e';
+                        navBtn.style.color = 'white';
+                        navBtn.style.borderColor = '#22c55e';
+                    } else {
+                        feedbackDiv.innerHTML = `<strong>✕ Incorrect</strong> ${q.explanation}`;
+                        feedbackDiv.className = 'feedback wrong';
+                        card.style.borderColor = '#ef4444';
+                        navBtn.style.backgroundColor = '#ef4444';
+                        navBtn.style.color = 'white';
+                        navBtn.style.borderColor = '#ef4444';
+                    }
+                    feedbackDiv.style.display = 'block';
+                } else {
+                    // Subjective questions
+                    feedbackDiv.innerHTML = `<strong>Note:</strong> Written answers are not auto-graded.`;
+                    feedbackDiv.className = 'feedback info';
+                    feedbackDiv.style.display = 'block';
+
+                    if (q.rubric) {
+                        reflectionDiv.innerHTML = `<strong>Self-Reflection Rubric:</strong><br>${q.rubric}`;
+                        reflectionDiv.style.display = 'block';
+                    }
+                }
+            });
+
+            const scoreDisplay = document.getElementById('score-display');
+            if (gradedCount > 0) {
+                const percentage = Math.round((score / gradedCount) * 100);
+                scoreDisplay.innerHTML = `
+                    <div style="font-size: 14px; color: var(--muted); margin-bottom: 8px;">FINAL SCORE</div>
+                    ${score} / ${gradedCount} <span style="font-size: 20px; color: var(--muted);">(${percentage}%)</span>
+                `;
+                scoreDisplay.style.display = 'block';
+                // Add Score Box style if not present
+                scoreDisplay.style.padding = '24px';
+                scoreDisplay.style.background = '#f8fafc';
+                scoreDisplay.style.borderRadius = '12px';
+                scoreDisplay.style.border = '1px solid var(--border)';
+                scoreDisplay.style.marginBottom = '24px';
+            } else {
+                scoreDisplay.textContent = "Assessment Submitted for Review";
+                scoreDisplay.style.display = 'block';
+            }
+
+            scoreDisplay.scrollIntoView({ behavior: 'smooth' });
+
+            document.getElementById('submit-btn').style.display = 'none';
+
+            // Show variant button if available
+            if (currentQuizData.nextVariantId) {
+                const varBtn = document.getElementById('variant-btn');
+                varBtn.style.display = 'block';
+                varBtn.onclick = () => window.location.href = `quiz-runner.html?id=${currentQuizData.nextVariantId}`;
+            }
+
+            const retryBtn = document.getElementById('retry-btn');
+            retryBtn.style.display = 'inline-block';
+            retryBtn.textContent = "Retake Assessment";
+        }
+
+        document.getElementById('retry-btn').addEventListener('click', function () {
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>
