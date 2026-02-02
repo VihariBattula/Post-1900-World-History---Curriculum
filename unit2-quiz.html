@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 Mastery Quiz | Modern History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+            display: block;
+            /* Override flex from main layout if necessary */
+            height: auto;
+            overflow-y: auto;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 24px;
+        }
+
+        .quiz-title {
+            font-family: var(--serif);
+            font-size: 36px;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .quiz-subtitle {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .q-number {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .q-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 20px;
+            font-family: var(--sans);
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 15px;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+            accent-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Result Styles */
+        .feedback {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .feedback.wrong {
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .feedback strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Actions */
+        .action-bar {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-home {
+            padding: 16px 24px;
+            background: white;
+            border: 2px solid var(--border);
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-home:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        #score-display {
+            text-align: center;
+            font-size: 24px;
+            font-family: var(--serif);
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 24px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h1 class="quiz-title">Unit 2: World War II Mastery Quiz</h1>
+            <div class="quiz-subtitle">Test your knowledge of the Global Conflict (1939–1945)</div>
+        </header>
+
+        <form id="quiz-form">
+            <!-- Q1 -->
+            <div class="question-card" id="q1">
+                <span class="q-number">Question 1</span>
+                <div class="q-text">Which policy did Britain and France pursue at the Munich Conference in 1938?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q1" value="a"> Total War</label>
+                    <label class="option-label"><input type="radio" name="q1" value="b"> Appeasement</label>
+                    <label class="option-label"><input type="radio" name="q1" value="c"> Isolationism</label>
+                    <label class="option-label"><input type="radio" name="q1" value="d"> Scorched Earth</label>
+                </div>
+                <div class="feedback" id="feedback-q1"></div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-card" id="q2">
+                <span class="q-number">Question 2</span>
+                <div class="q-text">What was the "turning point" battle on the Eastern Front where the German 6th Army
+                    surrendered?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q2" value="a"> Battle of the Bulge</label>
+                    <label class="option-label"><input type="radio" name="q2" value="b"> Battle of El Alamein</label>
+                    <label class="option-label"><input type="radio" name="q2" value="c"> Battle of Stalingrad</label>
+                    <label class="option-label"><input type="radio" name="q2" value="d"> Battle of Midway</label>
+                </div>
+                <div class="feedback" id="feedback-q2"></div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-card" id="q3">
+                <span class="q-number">Question 3</span>
+                <div class="q-text">Which military tactic relies on speed, coordinated air strikes, and fast-moving tank
+                    divisions?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q3" value="a"> Trench Warfare</label>
+                    <label class="option-label"><input type="radio" name="q3" value="b"> Blitzkrieg</label>
+                    <label class="option-label"><input type="radio" name="q3" value="c"> Guerrilla Warfare</label>
+                    <label class="option-label"><input type="radio" name="q3" value="d"> Island Hopping</label>
+                </div>
+                <div class="feedback" id="feedback-q3"></div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-card" id="q4">
+                <span class="q-number">Question 4</span>
+                <div class="q-text">What was the "Final Solution" decided at the Wannsee Conference (1942)?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q4" value="a"> The plan to invade the Soviet
+                        Union</label>
+                    <label class="option-label"><input type="radio" name="q4" value="b"> The surrender terms for
+                        France</label>
+                    <label class="option-label"><input type="radio" name="q4" value="c"> The specific plan for the
+                        systematic genocide of the Jewish people</label>
+                    <label class="option-label"><input type="radio" name="q4" value="d"> The development of the Atomic
+                        Bomb</label>
+                </div>
+                <div class="feedback" id="feedback-q4"></div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-card" id="q5">
+                <span class="q-number">Question 5</span>
+                <div class="q-text">Why is the Battle of Midway (1942) considered significant?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q5" value="a"> It was the first time aircraft
+                        carriers were used.</label>
+                    <label class="option-label"><input type="radio" name="q5" value="b"> Allowed the US to destroy 4
+                        Japanese carriers, halting their advance.</label>
+                    <label class="option-label"><input type="radio" name="q5" value="c"> It resulted in the liberation
+                        of the Philippines.</label>
+                    <label class="option-label"><input type="radio" name="q5" value="d"> It was the site of the first
+                        atomic bomb test.</label>
+                </div>
+                <div class="feedback" id="feedback-q5"></div>
+            </div>
+
+            <!-- NEW QUESTIONS -->
+            <!-- Q6 -->
+            <div class="question-card" id="q6">
+                <span class="q-number">Question 6</span>
+                <div class="q-text">What was the primary reason for German success in 1940 despite French tanks often
+                    having better armor?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q6" value="a"> Superior synthetic fuel</label>
+                    <label class="option-label"><input type="radio" name="q6" value="b"> Radio coordination in every
+                        tank</label>
+                    <label class="option-label"><input type="radio" name="q6" value="c"> Larger gun caliber on all
+                        Panzers</label>
+                    <label class="option-label"><input type="radio" name="q6" value="d"> The French had no tanks</label>
+                </div>
+                <div class="feedback" id="feedback-q6"></div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-card" id="q7">
+                <span class="q-number">Question 7</span>
+                <div class="q-text">Which event occurred on September 1, 1939?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q7" value="a"> The bombing of Pearl
+                        Harbor</label>
+                    <label class="option-label"><input type="radio" name="q7" value="b"> The Invasion of Poland</label>
+                    <label class="option-label"><input type="radio" name="q7" value="c"> The Fall of Paris</label>
+                    <label class="option-label"><input type="radio" name="q7" value="d"> The signing of the Munich
+                        Pact</label>
+                </div>
+                <div class="feedback" id="feedback-q7"></div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-card" id="q8">
+                <span class="q-number">Question 8</span>
+                <div class="q-text">What was the Soviet "Scorched Earth" policy?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q8" value="a"> Massive bombing of German
+                        cities</label>
+                    <label class="option-label"><input type="radio" name="q8" value="b"> Burning their own resources
+                        while retreating to deny them to the enemy</label>
+                    <label class="option-label"><input type="radio" name="q8" value="c"> The US strategy of burning
+                        islands in the Pacific</label>
+                    <label class="option-label"><input type="radio" name="q8" value="d"> Setting fire to oil fields in
+                        the Caucasus</label>
+                </div>
+                <div class="feedback" id="feedback-q8"></div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-card" id="q9">
+                <span class="q-number">Question 9</span>
+                <div class="q-text">Operation Overlord (D-Day) used a massive deception campaign to convince Hitler the
+                    invasion would happen at:</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q9" value="a"> Normandy</label>
+                    <label class="option-label"><input type="radio" name="q9" value="b"> Pas-de-Calais</label>
+                    <label class="option-label"><input type="radio" name="q9" value="c"> Norway</label>
+                    <label class="option-label"><input type="radio" name="q9" value="d"> Southern France</label>
+                </div>
+                <div class="feedback" id="feedback-q9"></div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question-card" id="q10">
+                <span class="q-number">Question 10</span>
+                <div class="q-text">Which event formally ended World War II in Europe?</div>
+                <div class="options-grid">
+                    <label class="option-label"><input type="radio" name="q10" value="a"> V-J Day</label>
+                    <label class="option-label"><input type="radio" name="q10" value="b"> V-E Day</label>
+                    <label class="option-label"><input type="radio" name="q10" value="c"> The Yalta Conference</label>
+                    <label class="option-label"><input type="radio" name="q10" value="d"> The Death of Hitler</label>
+                </div>
+                <div class="feedback" id="feedback-q10"></div>
+            </div>
+
+            <div id="score-display"></div>
+
+            <div class="action-bar">
+                <a href="index.html" class="btn-home">← Back to Curriculum</a>
+                <button type="button" id="submit-btn" class="btn-submit">Submit Answers</button>
+                <button type="button" id="retry-btn" class="btn-submit"
+                    style="display: none; background-color: var(--accent);">Retake Quiz</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            q1: 'b', // Appeasement
+            q2: 'c', // Stalingrad
+            q3: 'b', // Blitzkrieg
+            q4: 'c', // Final Solution
+            q5: 'b', // Midway
+            q6: 'b', // Radio coordination
+            q7: 'b', // Poland
+            q8: 'b', // Scorched Earth
+            q9: 'b', // Pas-de-Calais
+            q10: 'b' // V-E Day
+        };
+
+        const explanations = {
+            q1: "Correct! Appeasement was the desperate diplomatic policy of giving concessions to avoiding war.",
+            q2: "Correct! Stalingrad was the bloodiest battle and halted the German eastward expansion.",
+            q3: "Correct! Blitzkrieg used combined arms (tanks + air) to overwhelm static defenses.",
+            q4: "Correct! The Wannsee Conference formalized the industrial genocide of the Holocaust.",
+            q5: "Correct! The destruction of 4 Japanese carriers permanently crippled their offensive power.",
+            q6: "Correct! While French tanks were stronger, they lacked radios. German tanks could coordinate complex maneuvers.",
+            q7: "Correct! Germany invaded Poland on Sept 1, 1939, triggering declarations of war from Britain and France.",
+            q8: "Correct! The Soviets destroyed crops, bridges, and infrastructure to leave nothing for the invading Germans.",
+            q9: "Correct! Operation Fortitude successfully tricked Hitler into keeping his best Panzer divisions away from Normandy.",
+            q10: "Correct! V-E Day (Victory in Europe) marked the formal acceptance of Germany's surrender."
+        };
+
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            let score = 0;
+            let total = 10;
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+
+            // Disable inputs
+            const inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(input => input.disabled = true);
+
+            for (let i = 1; i <= total; i++) {
+                const qKey = 'q' + i;
+                const feedbackDiv = document.getElementById('feedback-' + qKey);
+                const selected = formData.get(qKey);
+                const card = document.getElementById(qKey);
+
+                if (selected === correctAnswers[qKey]) {
+                    score++;
+                    feedbackDiv.innerHTML = `<strong>✓ Correct</strong> ${explanations[qKey]}`;
+                    feedbackDiv.className = 'feedback correct';
+                    card.style.borderColor = '#22c55e'; // Green border
+                } else {
+                    feedbackDiv.innerHTML = `<strong>✕ Incorrect</strong> ${explanations[qKey] || ''}`;
+                    feedbackDiv.className = 'feedback wrong';
+                    card.style.borderColor = '#ef4444'; // Red border
+                }
+            }
+
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.textContent = `You scored ${score} out of ${total}`;
+            scoreDisplay.style.display = 'block';
+            scoreDisplay.scrollIntoView({ behavior: 'smooth' });
+
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('retry-btn').style.display = 'block';
+        });
+
+        document.getElementById('retry-btn').addEventListener('click', function () {
+            location.reload();
+        });
+    </script>
+
+</body>
+
+</html>
